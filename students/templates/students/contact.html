@@ -1,0 +1,94 @@
+{% extends 'students/base.html' %}
+
+
+{% block title %}
+Contact - Student Management System
+{% endblock %}
+
+
+{% block content %}
+
+<div class="form-page">
+
+
+    <div class="form-card">
+
+        <h1>
+            Contact Us
+        </h1>
+
+        <p>
+            Have a question? Send us a message.
+        </p>
+
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+
+            <div class="form-group">
+
+                <label>
+                    Your Name
+                </label>
+
+                <input
+                    type="text"
+                    name="name"
+                    class="form-input"
+                    placeholder="Enter your name"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    name="email"
+                    class="form-input"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Message
+                </label>
+
+                <textarea
+                    name="message"
+                    class="form-input message-box"
+                    placeholder="Write your message..."
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="primary-btn">
+
+                Send Message
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

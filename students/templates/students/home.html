@@ -1,0 +1,519 @@
+{% extends 'students/base.html' %}
+
+{% block title %}
+Home - Student Management System
+{% endblock %}
+
+{% block content %}
+
+<!-- ================= HERO SECTION ================= -->
+
+<section class="home-hero">
+
+    <div class="home-hero-content">
+
+        <span class="home-badge">
+            STUDENT MANAGEMENT SYSTEM
+        </span>
+
+        <h1>
+            Manage Students
+            <span>Smartly & Easily</span>
+        </h1>
+
+        <p>
+            A simple and powerful Student Management System
+            built with Django to manage student records efficiently.
+        </p>
+
+        <div class="home-buttons">
+
+            <a href="{% url 'student_list' %}" class="home-primary-btn">
+                View Students →
+            </a>
+
+            <a href="{% url 'student_add' %}" class="home-outline-btn">
+                + Add Student
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- Dashboard Preview -->
+
+    <div class="home-dashboard">
+
+        <div class="dashboard-top">
+            <span>Student Dashboard</span>
+            <span>📊</span>
+        </div>
+
+        <div class="dashboard-welcome">
+
+            <div>
+                <small>WELCOME</small>
+
+                <h3>
+                    Student Management
+                </h3>
+            </div>
+
+            <div class="dashboard-avatar">
+                🎓
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-stats">
+
+            <div class="mini-stat">
+
+                <span>👨‍🎓</span>
+
+                <div>
+                    <strong>{{ total_students }}</strong>
+                    <small>Total Students</small>
+                </div>
+
+            </div>
+
+
+            <div class="mini-stat">
+
+                <span>🔒</span>
+
+                <div>
+                    <strong>Active</strong>
+                    <small>System Status</small>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-progress">
+
+            <div class="progress-heading">
+                <span>System Performance</span>
+                <span>85%</span>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= STATISTICS ================= -->
+
+<section class="home-statistics">
+
+    <!-- Total Students -->
+
+    <div class="home-stat-card">
+
+        <div class="home-stat-icon">
+            👨‍🎓
+        </div>
+
+        <div>
+            <h2>
+                {{ total_students }}
+            </h2>
+
+            <p>
+                Total Students
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- Average Age -->
+
+    <div class="home-stat-card">
+
+        <div class="home-stat-icon">
+            🎂
+        </div>
+
+        <div>
+
+            <h2>
+
+                {% if average_age %}
+                    {{ average_age|floatformat:1 }}
+                {% else %}
+                    0
+                {% endif %}
+
+            </h2>
+
+            <p>
+                Average Age
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- System Status -->
+
+    <div class="home-stat-card">
+
+        <div class="home-stat-icon">
+            🔒
+        </div>
+
+        <div>
+
+            <h2>
+                Active
+            </h2>
+
+            <p>
+                System Status
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Data -->
+
+    <div class="home-stat-card">
+
+        <div class="home-stat-icon">
+            📊
+        </div>
+
+        <div>
+
+            <h2>
+                100%
+            </h2>
+
+            <p>
+                Data Organized
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="home-features">
+
+    <div class="home-section-heading">
+
+        <span>
+            FEATURES
+        </span>
+
+        <h2>
+            Everything You Need to Manage Students
+        </h2>
+
+        <p>
+            A simple and reliable system designed to make
+            student management easier and more organized.
+        </p>
+
+    </div>
+
+
+    <div class="home-feature-grid">
+
+
+        <!-- Feature 1 -->
+
+        <div class="home-feature-card">
+
+            <span class="feature-number">
+                01
+            </span>
+
+            <div class="home-feature-icon">
+                👨‍🎓
+            </div>
+
+            <h3>
+                Student Management
+            </h3>
+
+            <p>
+                Add, view and manage student information
+                from one simple interface.
+            </p>
+
+            <a href="{% url 'student_list' %}">
+                View Students →
+            </a>
+
+        </div>
+
+
+        <!-- Feature 2 -->
+
+        <div class="home-feature-card">
+
+            <span class="feature-number">
+                02
+            </span>
+
+            <div class="home-feature-icon">
+                🔒
+            </div>
+
+            <h3>
+                Secure & Reliable
+            </h3>
+
+            <p>
+                Student information is stored safely
+                using a database.
+            </p>
+
+        </div>
+
+
+        <!-- Feature 3 -->
+
+        <div class="home-feature-card">
+
+            <span class="feature-number">
+                03
+            </span>
+
+            <div class="home-feature-icon">
+                📊
+            </div>
+
+            <h3>
+                Dashboard
+            </h3>
+
+            <p>
+                Get a quick overview of your student
+                records from the home page.
+            </p>
+
+        </div>
+
+
+        <!-- Feature 4 -->
+
+        <div class="home-feature-card">
+
+            <span class="feature-number">
+                04
+            </span>
+
+            <div class="home-feature-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Easy to Use
+            </h3>
+
+            <p>
+                Simple and clean interface designed
+                for easy student management.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= RECENT STUDENTS ================= -->
+
+<section class="home-recent">
+
+    <div class="home-recent-heading">
+
+        <div>
+
+            <span>
+                RECENT STUDENTS
+            </span>
+
+            <h2>
+                Recently Added Students
+            </h2>
+
+        </div>
+
+        <a href="{% url 'student_list' %}">
+            View All →
+        </a>
+
+    </div>
+
+
+    <div class="home-table-container">
+
+        {% if recent_students %}
+
+        <table class="home-table">
+
+            <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for student in recent_students %}
+
+                <tr>
+
+                    <td>
+                        {{ student.id }}
+                    </td>
+
+
+                    <td>
+
+                        <div class="home-student-name">
+
+                            <div class="student-small-avatar">
+                                🎓
+                            </div>
+
+                            <strong>
+                                {{ student.name }}
+                            </strong>
+
+                        </div>
+
+                    </td>
+
+
+                    <td>
+                        {{ student.email }}
+                    </td>
+
+
+                    <td>
+                        {{ student.age }}
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+
+        {% else %}
+
+        <div class="home-empty">
+
+            <div>
+                👨‍🎓
+            </div>
+
+            <h3>
+                No Students Yet
+            </h3>
+
+            <p>
+                No students have been added yet.
+            </p>
+
+            <a href="{% url 'student_add' %}"
+               class="home-primary-btn">
+                + Add Student
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+
+    {% if recent_students %}
+
+    <div class="home-view-all">
+
+        <a href="{% url 'student_list' %}"
+           class="home-primary-btn">
+            View All Students →
+        </a>
+
+    </div>
+
+    {% endif %}
+
+</section>
+
+
+
+<!-- ================= CALL TO ACTION ================= -->
+
+<section class="home-cta">
+
+    <div>
+
+        <span>
+            GET STARTED
+        </span>
+
+        <h2>
+            Ready to Manage Your Students?
+        </h2>
+
+        <p>
+            Add a new student or view all existing student records.
+        </p>
+
+    </div>
+
+
+    <div class="action-buttons">
+
+        <a href="{% url 'student_add' %}">
+            ➕ Add New Student
+        </a>
+
+        <a href="{% url 'student_list' %}">
+            👨‍🎓 View All Students
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}
